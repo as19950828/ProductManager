@@ -13,10 +13,4 @@ class BaseModel extends Model
     {
         return self::where('id', $id)->whereNull('deleted_at')->first();
     }
-
-    public function softDelete()
-    {
-        $this->deleted_at = now();
-        $this->save();
-    }
 }

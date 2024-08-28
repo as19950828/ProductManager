@@ -128,7 +128,7 @@ class ProductController extends Controller
         if (is_null($product)) {
             abort(404, "削除に失敗しました");
         }
-        $product->softDelete();
+        $product->delete();
 
         return to_route('products.index');
     }
