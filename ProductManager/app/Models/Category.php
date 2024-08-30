@@ -13,16 +13,4 @@ class Category extends BaseModel
         'name',
         'deleted_at',
     ];
-
-    public function scopeSearch($query, $search)
-    {
-        if ($search !== null) {
-            $search_kana = mb_convert_kana($search, 's');
-            $search_split = preg_split('/[\s]+/', $search_kana);
-            foreach ($search_split as $value) {
-                $query->where('name', 'like', '%' . $value . '%');
-            }
-        }
-        return $query;
-    }
 }
